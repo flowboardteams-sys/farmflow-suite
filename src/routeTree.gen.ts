@@ -40,6 +40,7 @@ import { Route as AuthenticatedBreedingRouteImport } from './routes/_authenticat
 import { Route as AuthenticatedAssetsRouteImport } from './routes/_authenticated/assets'
 import { Route as AuthenticatedAnimalsRouteImport } from './routes/_authenticated/animals'
 import { Route as AuthenticatedAnalyticsRouteImport } from './routes/_authenticated/analytics'
+import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 
 const VerifyEmailRoute = VerifyEmailRouteImport.update({
   id: '/verify-email',
@@ -197,6 +198,11 @@ const AuthenticatedAnalyticsRoute = AuthenticatedAnalyticsRouteImport.update({
   path: '/analytics',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -204,6 +210,7 @@ export interface FileRoutesByFullPath {
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/analytics': typeof AuthenticatedAnalyticsRoute
   '/animals': typeof AuthenticatedAnimalsRoute
   '/assets': typeof AuthenticatedAssetsRoute
@@ -236,6 +243,7 @@ export interface FileRoutesByTo {
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/admin': typeof AuthenticatedAdminRoute
   '/analytics': typeof AuthenticatedAnalyticsRoute
   '/animals': typeof AuthenticatedAnimalsRoute
   '/assets': typeof AuthenticatedAssetsRoute
@@ -270,6 +278,7 @@ export interface FileRoutesById {
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/analytics': typeof AuthenticatedAnalyticsRoute
   '/_authenticated/animals': typeof AuthenticatedAnimalsRoute
   '/_authenticated/assets': typeof AuthenticatedAssetsRoute
@@ -304,6 +313,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/reset-password'
     | '/verify-email'
+    | '/admin'
     | '/analytics'
     | '/animals'
     | '/assets'
@@ -336,6 +346,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/reset-password'
     | '/verify-email'
+    | '/admin'
     | '/analytics'
     | '/animals'
     | '/assets'
@@ -369,6 +380,7 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/reset-password'
     | '/verify-email'
+    | '/_authenticated/admin'
     | '/_authenticated/analytics'
     | '/_authenticated/animals'
     | '/_authenticated/assets'
@@ -625,10 +637,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAnalyticsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRoute: typeof AuthenticatedAdminRoute
   AuthenticatedAnalyticsRoute: typeof AuthenticatedAnalyticsRoute
   AuthenticatedAnimalsRoute: typeof AuthenticatedAnimalsRoute
   AuthenticatedAssetsRoute: typeof AuthenticatedAssetsRoute
@@ -655,6 +675,7 @@ interface AuthenticatedRouteRouteChildren {
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRoute: AuthenticatedAdminRoute,
   AuthenticatedAnalyticsRoute: AuthenticatedAnalyticsRoute,
   AuthenticatedAnimalsRoute: AuthenticatedAnimalsRoute,
   AuthenticatedAssetsRoute: AuthenticatedAssetsRoute,
