@@ -18,6 +18,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as InviteTokenRouteImport } from './routes/invite.$token'
 import { Route as AuthForgotRouteImport } from './routes/auth.forgot'
 import { Route as AuthenticatedWeaningRouteImport } from './routes/_authenticated/weaning'
+import { Route as AuthenticatedSupportRouteImport } from './routes/_authenticated/support'
 import { Route as AuthenticatedStorefrontRouteImport } from './routes/_authenticated/storefront'
 import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
 import { Route as AuthenticatedReportsRouteImport } from './routes/_authenticated/reports'
@@ -82,6 +83,11 @@ const AuthForgotRoute = AuthForgotRouteImport.update({
 const AuthenticatedWeaningRoute = AuthenticatedWeaningRouteImport.update({
   id: '/weaning',
   path: '/weaning',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSupportRoute = AuthenticatedSupportRouteImport.update({
+  id: '/support',
+  path: '/support',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedStorefrontRoute = AuthenticatedStorefrontRouteImport.update({
@@ -219,6 +225,7 @@ export interface FileRoutesByFullPath {
   '/reports': typeof AuthenticatedReportsRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/storefront': typeof AuthenticatedStorefrontRoute
+  '/support': typeof AuthenticatedSupportRoute
   '/weaning': typeof AuthenticatedWeaningRoute
   '/auth/forgot': typeof AuthForgotRoute
   '/invite/$token': typeof InviteTokenRoute
@@ -250,6 +257,7 @@ export interface FileRoutesByTo {
   '/reports': typeof AuthenticatedReportsRoute
   '/settings': typeof AuthenticatedSettingsRoute
   '/storefront': typeof AuthenticatedStorefrontRoute
+  '/support': typeof AuthenticatedSupportRoute
   '/weaning': typeof AuthenticatedWeaningRoute
   '/auth/forgot': typeof AuthForgotRoute
   '/invite/$token': typeof InviteTokenRoute
@@ -283,6 +291,7 @@ export interface FileRoutesById {
   '/_authenticated/reports': typeof AuthenticatedReportsRoute
   '/_authenticated/settings': typeof AuthenticatedSettingsRoute
   '/_authenticated/storefront': typeof AuthenticatedStorefrontRoute
+  '/_authenticated/support': typeof AuthenticatedSupportRoute
   '/_authenticated/weaning': typeof AuthenticatedWeaningRoute
   '/auth/forgot': typeof AuthForgotRoute
   '/invite/$token': typeof InviteTokenRoute
@@ -316,6 +325,7 @@ export interface FileRouteTypes {
     | '/reports'
     | '/settings'
     | '/storefront'
+    | '/support'
     | '/weaning'
     | '/auth/forgot'
     | '/invite/$token'
@@ -347,6 +357,7 @@ export interface FileRouteTypes {
     | '/reports'
     | '/settings'
     | '/storefront'
+    | '/support'
     | '/weaning'
     | '/auth/forgot'
     | '/invite/$token'
@@ -379,6 +390,7 @@ export interface FileRouteTypes {
     | '/_authenticated/reports'
     | '/_authenticated/settings'
     | '/_authenticated/storefront'
+    | '/_authenticated/support'
     | '/_authenticated/weaning'
     | '/auth/forgot'
     | '/invite/$token'
@@ -457,6 +469,13 @@ declare module '@tanstack/react-router' {
       path: '/weaning'
       fullPath: '/weaning'
       preLoaderRoute: typeof AuthenticatedWeaningRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/support': {
+      id: '/_authenticated/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof AuthenticatedSupportRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/storefront': {
@@ -631,6 +650,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedReportsRoute: typeof AuthenticatedReportsRoute
   AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
   AuthenticatedStorefrontRoute: typeof AuthenticatedStorefrontRoute
+  AuthenticatedSupportRoute: typeof AuthenticatedSupportRoute
   AuthenticatedWeaningRoute: typeof AuthenticatedWeaningRoute
 }
 
@@ -656,6 +676,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedReportsRoute: AuthenticatedReportsRoute,
   AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
   AuthenticatedStorefrontRoute: AuthenticatedStorefrontRoute,
+  AuthenticatedSupportRoute: AuthenticatedSupportRoute,
   AuthenticatedWeaningRoute: AuthenticatedWeaningRoute,
 }
 
