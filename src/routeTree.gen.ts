@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VerifyEmailRouteImport } from './routes/verify-email'
+import { Route as SubscriptionExpiredRouteImport } from './routes/subscription-expired'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as OnboardingRouteImport } from './routes/onboarding'
 import { Route as AuthRouteImport } from './routes/auth'
@@ -46,6 +47,11 @@ import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/
 const VerifyEmailRoute = VerifyEmailRouteImport.update({
   id: '/verify-email',
   path: '/verify-email',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubscriptionExpiredRoute = SubscriptionExpiredRouteImport.update({
+  id: '/subscription-expired',
+  path: '/subscription-expired',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResetPasswordRoute = ResetPasswordRouteImport.update({
@@ -215,6 +221,7 @@ export interface FileRoutesByFullPath {
   '/auth': typeof AuthRouteWithChildren
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/subscription-expired': typeof SubscriptionExpiredRoute
   '/verify-email': typeof VerifyEmailRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/analytics': typeof AuthenticatedAnalyticsRoute
@@ -249,6 +256,7 @@ export interface FileRoutesByTo {
   '/auth': typeof AuthRouteWithChildren
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/subscription-expired': typeof SubscriptionExpiredRoute
   '/verify-email': typeof VerifyEmailRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/analytics': typeof AuthenticatedAnalyticsRoute
@@ -285,6 +293,7 @@ export interface FileRoutesById {
   '/auth': typeof AuthRouteWithChildren
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/subscription-expired': typeof SubscriptionExpiredRoute
   '/verify-email': typeof VerifyEmailRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/_authenticated/analytics': typeof AuthenticatedAnalyticsRoute
@@ -321,6 +330,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/onboarding'
     | '/reset-password'
+    | '/subscription-expired'
     | '/verify-email'
     | '/admin'
     | '/analytics'
@@ -355,6 +365,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/onboarding'
     | '/reset-password'
+    | '/subscription-expired'
     | '/verify-email'
     | '/admin'
     | '/analytics'
@@ -390,6 +401,7 @@ export interface FileRouteTypes {
     | '/auth'
     | '/onboarding'
     | '/reset-password'
+    | '/subscription-expired'
     | '/verify-email'
     | '/_authenticated/admin'
     | '/_authenticated/analytics'
@@ -426,6 +438,7 @@ export interface RootRouteChildren {
   AuthRoute: typeof AuthRouteWithChildren
   OnboardingRoute: typeof OnboardingRoute
   ResetPasswordRoute: typeof ResetPasswordRoute
+  SubscriptionExpiredRoute: typeof SubscriptionExpiredRoute
   VerifyEmailRoute: typeof VerifyEmailRoute
   InviteTokenRoute: typeof InviteTokenRoute
 }
@@ -437,6 +450,13 @@ declare module '@tanstack/react-router' {
       path: '/verify-email'
       fullPath: '/verify-email'
       preLoaderRoute: typeof VerifyEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/subscription-expired': {
+      id: '/subscription-expired'
+      path: '/subscription-expired'
+      fullPath: '/subscription-expired'
+      preLoaderRoute: typeof SubscriptionExpiredRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reset-password': {
@@ -741,6 +761,7 @@ const rootRouteChildren: RootRouteChildren = {
   AuthRoute: AuthRouteWithChildren,
   OnboardingRoute: OnboardingRoute,
   ResetPasswordRoute: ResetPasswordRoute,
+  SubscriptionExpiredRoute: SubscriptionExpiredRoute,
   VerifyEmailRoute: VerifyEmailRoute,
   InviteTokenRoute: InviteTokenRoute,
 }
