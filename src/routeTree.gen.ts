@@ -20,6 +20,7 @@ import { Route as AuthForgotRouteImport } from './routes/auth.forgot'
 import { Route as AuthenticatedWeaningRouteImport } from './routes/_authenticated/weaning'
 import { Route as AuthenticatedStorefrontRouteImport } from './routes/_authenticated/storefront'
 import { Route as AuthenticatedReportsRouteImport } from './routes/_authenticated/reports'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
 import { Route as AuthenticatedPedigreeRouteImport } from './routes/_authenticated/pedigree'
 import { Route as AuthenticatedOrdersRouteImport } from './routes/_authenticated/orders'
 import { Route as AuthenticatedNotificationsRouteImport } from './routes/_authenticated/notifications'
@@ -90,6 +91,11 @@ const AuthenticatedStorefrontRoute = AuthenticatedStorefrontRouteImport.update({
 const AuthenticatedReportsRoute = AuthenticatedReportsRouteImport.update({
   id: '/reports',
   path: '/reports',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedPedigreeRoute = AuthenticatedPedigreeRouteImport.update({
@@ -203,6 +209,7 @@ export interface FileRoutesByFullPath {
   '/notifications': typeof AuthenticatedNotificationsRoute
   '/orders': typeof AuthenticatedOrdersRoute
   '/pedigree': typeof AuthenticatedPedigreeRoute
+  '/profile': typeof AuthenticatedProfileRoute
   '/reports': typeof AuthenticatedReportsRoute
   '/storefront': typeof AuthenticatedStorefrontRoute
   '/weaning': typeof AuthenticatedWeaningRoute
@@ -232,6 +239,7 @@ export interface FileRoutesByTo {
   '/notifications': typeof AuthenticatedNotificationsRoute
   '/orders': typeof AuthenticatedOrdersRoute
   '/pedigree': typeof AuthenticatedPedigreeRoute
+  '/profile': typeof AuthenticatedProfileRoute
   '/reports': typeof AuthenticatedReportsRoute
   '/storefront': typeof AuthenticatedStorefrontRoute
   '/weaning': typeof AuthenticatedWeaningRoute
@@ -263,6 +271,7 @@ export interface FileRoutesById {
   '/_authenticated/notifications': typeof AuthenticatedNotificationsRoute
   '/_authenticated/orders': typeof AuthenticatedOrdersRoute
   '/_authenticated/pedigree': typeof AuthenticatedPedigreeRoute
+  '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/reports': typeof AuthenticatedReportsRoute
   '/_authenticated/storefront': typeof AuthenticatedStorefrontRoute
   '/_authenticated/weaning': typeof AuthenticatedWeaningRoute
@@ -294,6 +303,7 @@ export interface FileRouteTypes {
     | '/notifications'
     | '/orders'
     | '/pedigree'
+    | '/profile'
     | '/reports'
     | '/storefront'
     | '/weaning'
@@ -323,6 +333,7 @@ export interface FileRouteTypes {
     | '/notifications'
     | '/orders'
     | '/pedigree'
+    | '/profile'
     | '/reports'
     | '/storefront'
     | '/weaning'
@@ -353,6 +364,7 @@ export interface FileRouteTypes {
     | '/_authenticated/notifications'
     | '/_authenticated/orders'
     | '/_authenticated/pedigree'
+    | '/_authenticated/profile'
     | '/_authenticated/reports'
     | '/_authenticated/storefront'
     | '/_authenticated/weaning'
@@ -447,6 +459,13 @@ declare module '@tanstack/react-router' {
       path: '/reports'
       fullPath: '/reports'
       preLoaderRoute: typeof AuthenticatedReportsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/pedigree': {
@@ -589,6 +608,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedNotificationsRoute: typeof AuthenticatedNotificationsRoute
   AuthenticatedOrdersRoute: typeof AuthenticatedOrdersRoute
   AuthenticatedPedigreeRoute: typeof AuthenticatedPedigreeRoute
+  AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
   AuthenticatedReportsRoute: typeof AuthenticatedReportsRoute
   AuthenticatedStorefrontRoute: typeof AuthenticatedStorefrontRoute
   AuthenticatedWeaningRoute: typeof AuthenticatedWeaningRoute
@@ -612,6 +632,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedNotificationsRoute: AuthenticatedNotificationsRoute,
   AuthenticatedOrdersRoute: AuthenticatedOrdersRoute,
   AuthenticatedPedigreeRoute: AuthenticatedPedigreeRoute,
+  AuthenticatedProfileRoute: AuthenticatedProfileRoute,
   AuthenticatedReportsRoute: AuthenticatedReportsRoute,
   AuthenticatedStorefrontRoute: AuthenticatedStorefrontRoute,
   AuthenticatedWeaningRoute: AuthenticatedWeaningRoute,
