@@ -19,6 +19,7 @@ import { Route as InviteTokenRouteImport } from './routes/invite.$token'
 import { Route as AuthForgotRouteImport } from './routes/auth.forgot'
 import { Route as AuthenticatedWeaningRouteImport } from './routes/_authenticated/weaning'
 import { Route as AuthenticatedStorefrontRouteImport } from './routes/_authenticated/storefront'
+import { Route as AuthenticatedSettingsRouteImport } from './routes/_authenticated/settings'
 import { Route as AuthenticatedReportsRouteImport } from './routes/_authenticated/reports'
 import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
 import { Route as AuthenticatedPedigreeRouteImport } from './routes/_authenticated/pedigree'
@@ -86,6 +87,11 @@ const AuthenticatedWeaningRoute = AuthenticatedWeaningRouteImport.update({
 const AuthenticatedStorefrontRoute = AuthenticatedStorefrontRouteImport.update({
   id: '/storefront',
   path: '/storefront',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedSettingsRoute = AuthenticatedSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedReportsRoute = AuthenticatedReportsRouteImport.update({
@@ -211,6 +217,7 @@ export interface FileRoutesByFullPath {
   '/pedigree': typeof AuthenticatedPedigreeRoute
   '/profile': typeof AuthenticatedProfileRoute
   '/reports': typeof AuthenticatedReportsRoute
+  '/settings': typeof AuthenticatedSettingsRoute
   '/storefront': typeof AuthenticatedStorefrontRoute
   '/weaning': typeof AuthenticatedWeaningRoute
   '/auth/forgot': typeof AuthForgotRoute
@@ -241,6 +248,7 @@ export interface FileRoutesByTo {
   '/pedigree': typeof AuthenticatedPedigreeRoute
   '/profile': typeof AuthenticatedProfileRoute
   '/reports': typeof AuthenticatedReportsRoute
+  '/settings': typeof AuthenticatedSettingsRoute
   '/storefront': typeof AuthenticatedStorefrontRoute
   '/weaning': typeof AuthenticatedWeaningRoute
   '/auth/forgot': typeof AuthForgotRoute
@@ -273,6 +281,7 @@ export interface FileRoutesById {
   '/_authenticated/pedigree': typeof AuthenticatedPedigreeRoute
   '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/reports': typeof AuthenticatedReportsRoute
+  '/_authenticated/settings': typeof AuthenticatedSettingsRoute
   '/_authenticated/storefront': typeof AuthenticatedStorefrontRoute
   '/_authenticated/weaning': typeof AuthenticatedWeaningRoute
   '/auth/forgot': typeof AuthForgotRoute
@@ -305,6 +314,7 @@ export interface FileRouteTypes {
     | '/pedigree'
     | '/profile'
     | '/reports'
+    | '/settings'
     | '/storefront'
     | '/weaning'
     | '/auth/forgot'
@@ -335,6 +345,7 @@ export interface FileRouteTypes {
     | '/pedigree'
     | '/profile'
     | '/reports'
+    | '/settings'
     | '/storefront'
     | '/weaning'
     | '/auth/forgot'
@@ -366,6 +377,7 @@ export interface FileRouteTypes {
     | '/_authenticated/pedigree'
     | '/_authenticated/profile'
     | '/_authenticated/reports'
+    | '/_authenticated/settings'
     | '/_authenticated/storefront'
     | '/_authenticated/weaning'
     | '/auth/forgot'
@@ -452,6 +464,13 @@ declare module '@tanstack/react-router' {
       path: '/storefront'
       fullPath: '/storefront'
       preLoaderRoute: typeof AuthenticatedStorefrontRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/settings': {
+      id: '/_authenticated/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/reports': {
@@ -610,6 +629,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedPedigreeRoute: typeof AuthenticatedPedigreeRoute
   AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
   AuthenticatedReportsRoute: typeof AuthenticatedReportsRoute
+  AuthenticatedSettingsRoute: typeof AuthenticatedSettingsRoute
   AuthenticatedStorefrontRoute: typeof AuthenticatedStorefrontRoute
   AuthenticatedWeaningRoute: typeof AuthenticatedWeaningRoute
 }
@@ -634,6 +654,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedPedigreeRoute: AuthenticatedPedigreeRoute,
   AuthenticatedProfileRoute: AuthenticatedProfileRoute,
   AuthenticatedReportsRoute: AuthenticatedReportsRoute,
+  AuthenticatedSettingsRoute: AuthenticatedSettingsRoute,
   AuthenticatedStorefrontRoute: AuthenticatedStorefrontRoute,
   AuthenticatedWeaningRoute: AuthenticatedWeaningRoute,
 }
