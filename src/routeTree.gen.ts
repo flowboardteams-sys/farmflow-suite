@@ -36,6 +36,7 @@ import { Route as AuthenticatedFinanceRouteImport } from './routes/_authenticate
 import { Route as AuthenticatedEnterpriseRouteImport } from './routes/_authenticated/enterprise'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as AuthenticatedCustomersRouteImport } from './routes/_authenticated/customers'
+import { Route as AuthenticatedChoosePlanRouteImport } from './routes/_authenticated/choose-plan'
 import { Route as AuthenticatedBreedingRouteImport } from './routes/_authenticated/breeding'
 import { Route as AuthenticatedAssetsRouteImport } from './routes/_authenticated/assets'
 import { Route as AuthenticatedAnimalsRouteImport } from './routes/_authenticated/animals'
@@ -178,6 +179,11 @@ const AuthenticatedCustomersRoute = AuthenticatedCustomersRouteImport.update({
   path: '/customers',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedChoosePlanRoute = AuthenticatedChoosePlanRouteImport.update({
+  id: '/choose-plan',
+  path: '/choose-plan',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedBreedingRoute = AuthenticatedBreedingRouteImport.update({
   id: '/breeding',
   path: '/breeding',
@@ -215,6 +221,7 @@ export interface FileRoutesByFullPath {
   '/animals': typeof AuthenticatedAnimalsRoute
   '/assets': typeof AuthenticatedAssetsRoute
   '/breeding': typeof AuthenticatedBreedingRoute
+  '/choose-plan': typeof AuthenticatedChoosePlanRoute
   '/customers': typeof AuthenticatedCustomersRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/enterprise': typeof AuthenticatedEnterpriseRoute
@@ -248,6 +255,7 @@ export interface FileRoutesByTo {
   '/animals': typeof AuthenticatedAnimalsRoute
   '/assets': typeof AuthenticatedAssetsRoute
   '/breeding': typeof AuthenticatedBreedingRoute
+  '/choose-plan': typeof AuthenticatedChoosePlanRoute
   '/customers': typeof AuthenticatedCustomersRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/enterprise': typeof AuthenticatedEnterpriseRoute
@@ -283,6 +291,7 @@ export interface FileRoutesById {
   '/_authenticated/animals': typeof AuthenticatedAnimalsRoute
   '/_authenticated/assets': typeof AuthenticatedAssetsRoute
   '/_authenticated/breeding': typeof AuthenticatedBreedingRoute
+  '/_authenticated/choose-plan': typeof AuthenticatedChoosePlanRoute
   '/_authenticated/customers': typeof AuthenticatedCustomersRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/enterprise': typeof AuthenticatedEnterpriseRoute
@@ -318,6 +327,7 @@ export interface FileRouteTypes {
     | '/animals'
     | '/assets'
     | '/breeding'
+    | '/choose-plan'
     | '/customers'
     | '/dashboard'
     | '/enterprise'
@@ -351,6 +361,7 @@ export interface FileRouteTypes {
     | '/animals'
     | '/assets'
     | '/breeding'
+    | '/choose-plan'
     | '/customers'
     | '/dashboard'
     | '/enterprise'
@@ -385,6 +396,7 @@ export interface FileRouteTypes {
     | '/_authenticated/animals'
     | '/_authenticated/assets'
     | '/_authenticated/breeding'
+    | '/_authenticated/choose-plan'
     | '/_authenticated/customers'
     | '/_authenticated/dashboard'
     | '/_authenticated/enterprise'
@@ -609,6 +621,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedCustomersRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/choose-plan': {
+      id: '/_authenticated/choose-plan'
+      path: '/choose-plan'
+      fullPath: '/choose-plan'
+      preLoaderRoute: typeof AuthenticatedChoosePlanRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/breeding': {
       id: '/_authenticated/breeding'
       path: '/breeding'
@@ -653,6 +672,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedAnimalsRoute: typeof AuthenticatedAnimalsRoute
   AuthenticatedAssetsRoute: typeof AuthenticatedAssetsRoute
   AuthenticatedBreedingRoute: typeof AuthenticatedBreedingRoute
+  AuthenticatedChoosePlanRoute: typeof AuthenticatedChoosePlanRoute
   AuthenticatedCustomersRoute: typeof AuthenticatedCustomersRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedEnterpriseRoute: typeof AuthenticatedEnterpriseRoute
@@ -680,6 +700,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedAnimalsRoute: AuthenticatedAnimalsRoute,
   AuthenticatedAssetsRoute: AuthenticatedAssetsRoute,
   AuthenticatedBreedingRoute: AuthenticatedBreedingRoute,
+  AuthenticatedChoosePlanRoute: AuthenticatedChoosePlanRoute,
   AuthenticatedCustomersRoute: AuthenticatedCustomersRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedEnterpriseRoute: AuthenticatedEnterpriseRoute,
