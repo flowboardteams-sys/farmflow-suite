@@ -22,6 +22,7 @@ import { Route as AuthenticatedStorefrontRouteImport } from './routes/_authentic
 import { Route as AuthenticatedReportsRouteImport } from './routes/_authenticated/reports'
 import { Route as AuthenticatedPedigreeRouteImport } from './routes/_authenticated/pedigree'
 import { Route as AuthenticatedOrdersRouteImport } from './routes/_authenticated/orders'
+import { Route as AuthenticatedNotificationsRouteImport } from './routes/_authenticated/notifications'
 import { Route as AuthenticatedMilkRouteImport } from './routes/_authenticated/milk'
 import { Route as AuthenticatedMarketplaceRouteImport } from './routes/_authenticated/marketplace'
 import { Route as AuthenticatedInventoryRouteImport } from './routes/_authenticated/inventory'
@@ -101,6 +102,12 @@ const AuthenticatedOrdersRoute = AuthenticatedOrdersRouteImport.update({
   path: '/orders',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedNotificationsRoute =
+  AuthenticatedNotificationsRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const AuthenticatedMilkRoute = AuthenticatedMilkRouteImport.update({
   id: '/milk',
   path: '/milk',
@@ -193,6 +200,7 @@ export interface FileRoutesByFullPath {
   '/inventory': typeof AuthenticatedInventoryRoute
   '/marketplace': typeof AuthenticatedMarketplaceRoute
   '/milk': typeof AuthenticatedMilkRoute
+  '/notifications': typeof AuthenticatedNotificationsRoute
   '/orders': typeof AuthenticatedOrdersRoute
   '/pedigree': typeof AuthenticatedPedigreeRoute
   '/reports': typeof AuthenticatedReportsRoute
@@ -221,6 +229,7 @@ export interface FileRoutesByTo {
   '/inventory': typeof AuthenticatedInventoryRoute
   '/marketplace': typeof AuthenticatedMarketplaceRoute
   '/milk': typeof AuthenticatedMilkRoute
+  '/notifications': typeof AuthenticatedNotificationsRoute
   '/orders': typeof AuthenticatedOrdersRoute
   '/pedigree': typeof AuthenticatedPedigreeRoute
   '/reports': typeof AuthenticatedReportsRoute
@@ -251,6 +260,7 @@ export interface FileRoutesById {
   '/_authenticated/inventory': typeof AuthenticatedInventoryRoute
   '/_authenticated/marketplace': typeof AuthenticatedMarketplaceRoute
   '/_authenticated/milk': typeof AuthenticatedMilkRoute
+  '/_authenticated/notifications': typeof AuthenticatedNotificationsRoute
   '/_authenticated/orders': typeof AuthenticatedOrdersRoute
   '/_authenticated/pedigree': typeof AuthenticatedPedigreeRoute
   '/_authenticated/reports': typeof AuthenticatedReportsRoute
@@ -281,6 +291,7 @@ export interface FileRouteTypes {
     | '/inventory'
     | '/marketplace'
     | '/milk'
+    | '/notifications'
     | '/orders'
     | '/pedigree'
     | '/reports'
@@ -309,6 +320,7 @@ export interface FileRouteTypes {
     | '/inventory'
     | '/marketplace'
     | '/milk'
+    | '/notifications'
     | '/orders'
     | '/pedigree'
     | '/reports'
@@ -338,6 +350,7 @@ export interface FileRouteTypes {
     | '/_authenticated/inventory'
     | '/_authenticated/marketplace'
     | '/_authenticated/milk'
+    | '/_authenticated/notifications'
     | '/_authenticated/orders'
     | '/_authenticated/pedigree'
     | '/_authenticated/reports'
@@ -448,6 +461,13 @@ declare module '@tanstack/react-router' {
       path: '/orders'
       fullPath: '/orders'
       preLoaderRoute: typeof AuthenticatedOrdersRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/notifications': {
+      id: '/_authenticated/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof AuthenticatedNotificationsRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/milk': {
@@ -566,6 +586,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedInventoryRoute: typeof AuthenticatedInventoryRoute
   AuthenticatedMarketplaceRoute: typeof AuthenticatedMarketplaceRoute
   AuthenticatedMilkRoute: typeof AuthenticatedMilkRoute
+  AuthenticatedNotificationsRoute: typeof AuthenticatedNotificationsRoute
   AuthenticatedOrdersRoute: typeof AuthenticatedOrdersRoute
   AuthenticatedPedigreeRoute: typeof AuthenticatedPedigreeRoute
   AuthenticatedReportsRoute: typeof AuthenticatedReportsRoute
@@ -588,6 +609,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedInventoryRoute: AuthenticatedInventoryRoute,
   AuthenticatedMarketplaceRoute: AuthenticatedMarketplaceRoute,
   AuthenticatedMilkRoute: AuthenticatedMilkRoute,
+  AuthenticatedNotificationsRoute: AuthenticatedNotificationsRoute,
   AuthenticatedOrdersRoute: AuthenticatedOrdersRoute,
   AuthenticatedPedigreeRoute: AuthenticatedPedigreeRoute,
   AuthenticatedReportsRoute: AuthenticatedReportsRoute,
