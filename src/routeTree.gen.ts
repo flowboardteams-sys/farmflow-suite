@@ -17,7 +17,25 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as InviteTokenRouteImport } from './routes/invite.$token'
 import { Route as AuthForgotRouteImport } from './routes/auth.forgot'
+import { Route as AuthenticatedWeaningRouteImport } from './routes/_authenticated/weaning'
+import { Route as AuthenticatedStorefrontRouteImport } from './routes/_authenticated/storefront'
+import { Route as AuthenticatedReportsRouteImport } from './routes/_authenticated/reports'
+import { Route as AuthenticatedPedigreeRouteImport } from './routes/_authenticated/pedigree'
+import { Route as AuthenticatedOrdersRouteImport } from './routes/_authenticated/orders'
+import { Route as AuthenticatedMilkRouteImport } from './routes/_authenticated/milk'
+import { Route as AuthenticatedMarketplaceRouteImport } from './routes/_authenticated/marketplace'
+import { Route as AuthenticatedInventoryRouteImport } from './routes/_authenticated/inventory'
+import { Route as AuthenticatedHrRouteImport } from './routes/_authenticated/hr'
+import { Route as AuthenticatedHealthRouteImport } from './routes/_authenticated/health'
+import { Route as AuthenticatedGrowthRouteImport } from './routes/_authenticated/growth'
+import { Route as AuthenticatedFinanceRouteImport } from './routes/_authenticated/finance'
+import { Route as AuthenticatedEnterpriseRouteImport } from './routes/_authenticated/enterprise'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedCustomersRouteImport } from './routes/_authenticated/customers'
+import { Route as AuthenticatedBreedingRouteImport } from './routes/_authenticated/breeding'
+import { Route as AuthenticatedAssetsRouteImport } from './routes/_authenticated/assets'
+import { Route as AuthenticatedAnimalsRouteImport } from './routes/_authenticated/animals'
+import { Route as AuthenticatedAnalyticsRouteImport } from './routes/_authenticated/analytics'
 
 const VerifyEmailRoute = VerifyEmailRouteImport.update({
   id: '/verify-email',
@@ -58,9 +76,100 @@ const AuthForgotRoute = AuthForgotRouteImport.update({
   path: '/forgot',
   getParentRoute: () => AuthRoute,
 } as any)
+const AuthenticatedWeaningRoute = AuthenticatedWeaningRouteImport.update({
+  id: '/weaning',
+  path: '/weaning',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedStorefrontRoute = AuthenticatedStorefrontRouteImport.update({
+  id: '/storefront',
+  path: '/storefront',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedReportsRoute = AuthenticatedReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedPedigreeRoute = AuthenticatedPedigreeRouteImport.update({
+  id: '/pedigree',
+  path: '/pedigree',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedOrdersRoute = AuthenticatedOrdersRouteImport.update({
+  id: '/orders',
+  path: '/orders',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedMilkRoute = AuthenticatedMilkRouteImport.update({
+  id: '/milk',
+  path: '/milk',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedMarketplaceRoute =
+  AuthenticatedMarketplaceRouteImport.update({
+    id: '/marketplace',
+    path: '/marketplace',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedInventoryRoute = AuthenticatedInventoryRouteImport.update({
+  id: '/inventory',
+  path: '/inventory',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedHrRoute = AuthenticatedHrRouteImport.update({
+  id: '/hr',
+  path: '/hr',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedHealthRoute = AuthenticatedHealthRouteImport.update({
+  id: '/health',
+  path: '/health',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedGrowthRoute = AuthenticatedGrowthRouteImport.update({
+  id: '/growth',
+  path: '/growth',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedFinanceRoute = AuthenticatedFinanceRouteImport.update({
+  id: '/finance',
+  path: '/finance',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedEnterpriseRoute = AuthenticatedEnterpriseRouteImport.update({
+  id: '/enterprise',
+  path: '/enterprise',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   id: '/dashboard',
   path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedCustomersRoute = AuthenticatedCustomersRouteImport.update({
+  id: '/customers',
+  path: '/customers',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedBreedingRoute = AuthenticatedBreedingRouteImport.update({
+  id: '/breeding',
+  path: '/breeding',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAssetsRoute = AuthenticatedAssetsRouteImport.update({
+  id: '/assets',
+  path: '/assets',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAnimalsRoute = AuthenticatedAnimalsRouteImport.update({
+  id: '/animals',
+  path: '/animals',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AuthenticatedAnalyticsRoute = AuthenticatedAnalyticsRouteImport.update({
+  id: '/analytics',
+  path: '/analytics',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 
@@ -70,7 +179,25 @@ export interface FileRoutesByFullPath {
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/analytics': typeof AuthenticatedAnalyticsRoute
+  '/animals': typeof AuthenticatedAnimalsRoute
+  '/assets': typeof AuthenticatedAssetsRoute
+  '/breeding': typeof AuthenticatedBreedingRoute
+  '/customers': typeof AuthenticatedCustomersRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/enterprise': typeof AuthenticatedEnterpriseRoute
+  '/finance': typeof AuthenticatedFinanceRoute
+  '/growth': typeof AuthenticatedGrowthRoute
+  '/health': typeof AuthenticatedHealthRoute
+  '/hr': typeof AuthenticatedHrRoute
+  '/inventory': typeof AuthenticatedInventoryRoute
+  '/marketplace': typeof AuthenticatedMarketplaceRoute
+  '/milk': typeof AuthenticatedMilkRoute
+  '/orders': typeof AuthenticatedOrdersRoute
+  '/pedigree': typeof AuthenticatedPedigreeRoute
+  '/reports': typeof AuthenticatedReportsRoute
+  '/storefront': typeof AuthenticatedStorefrontRoute
+  '/weaning': typeof AuthenticatedWeaningRoute
   '/auth/forgot': typeof AuthForgotRoute
   '/invite/$token': typeof InviteTokenRoute
 }
@@ -80,7 +207,25 @@ export interface FileRoutesByTo {
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/analytics': typeof AuthenticatedAnalyticsRoute
+  '/animals': typeof AuthenticatedAnimalsRoute
+  '/assets': typeof AuthenticatedAssetsRoute
+  '/breeding': typeof AuthenticatedBreedingRoute
+  '/customers': typeof AuthenticatedCustomersRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/enterprise': typeof AuthenticatedEnterpriseRoute
+  '/finance': typeof AuthenticatedFinanceRoute
+  '/growth': typeof AuthenticatedGrowthRoute
+  '/health': typeof AuthenticatedHealthRoute
+  '/hr': typeof AuthenticatedHrRoute
+  '/inventory': typeof AuthenticatedInventoryRoute
+  '/marketplace': typeof AuthenticatedMarketplaceRoute
+  '/milk': typeof AuthenticatedMilkRoute
+  '/orders': typeof AuthenticatedOrdersRoute
+  '/pedigree': typeof AuthenticatedPedigreeRoute
+  '/reports': typeof AuthenticatedReportsRoute
+  '/storefront': typeof AuthenticatedStorefrontRoute
+  '/weaning': typeof AuthenticatedWeaningRoute
   '/auth/forgot': typeof AuthForgotRoute
   '/invite/$token': typeof InviteTokenRoute
 }
@@ -92,7 +237,25 @@ export interface FileRoutesById {
   '/onboarding': typeof OnboardingRoute
   '/reset-password': typeof ResetPasswordRoute
   '/verify-email': typeof VerifyEmailRoute
+  '/_authenticated/analytics': typeof AuthenticatedAnalyticsRoute
+  '/_authenticated/animals': typeof AuthenticatedAnimalsRoute
+  '/_authenticated/assets': typeof AuthenticatedAssetsRoute
+  '/_authenticated/breeding': typeof AuthenticatedBreedingRoute
+  '/_authenticated/customers': typeof AuthenticatedCustomersRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/enterprise': typeof AuthenticatedEnterpriseRoute
+  '/_authenticated/finance': typeof AuthenticatedFinanceRoute
+  '/_authenticated/growth': typeof AuthenticatedGrowthRoute
+  '/_authenticated/health': typeof AuthenticatedHealthRoute
+  '/_authenticated/hr': typeof AuthenticatedHrRoute
+  '/_authenticated/inventory': typeof AuthenticatedInventoryRoute
+  '/_authenticated/marketplace': typeof AuthenticatedMarketplaceRoute
+  '/_authenticated/milk': typeof AuthenticatedMilkRoute
+  '/_authenticated/orders': typeof AuthenticatedOrdersRoute
+  '/_authenticated/pedigree': typeof AuthenticatedPedigreeRoute
+  '/_authenticated/reports': typeof AuthenticatedReportsRoute
+  '/_authenticated/storefront': typeof AuthenticatedStorefrontRoute
+  '/_authenticated/weaning': typeof AuthenticatedWeaningRoute
   '/auth/forgot': typeof AuthForgotRoute
   '/invite/$token': typeof InviteTokenRoute
 }
@@ -104,7 +267,25 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/reset-password'
     | '/verify-email'
+    | '/analytics'
+    | '/animals'
+    | '/assets'
+    | '/breeding'
+    | '/customers'
     | '/dashboard'
+    | '/enterprise'
+    | '/finance'
+    | '/growth'
+    | '/health'
+    | '/hr'
+    | '/inventory'
+    | '/marketplace'
+    | '/milk'
+    | '/orders'
+    | '/pedigree'
+    | '/reports'
+    | '/storefront'
+    | '/weaning'
     | '/auth/forgot'
     | '/invite/$token'
   fileRoutesByTo: FileRoutesByTo
@@ -114,7 +295,25 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/reset-password'
     | '/verify-email'
+    | '/analytics'
+    | '/animals'
+    | '/assets'
+    | '/breeding'
+    | '/customers'
     | '/dashboard'
+    | '/enterprise'
+    | '/finance'
+    | '/growth'
+    | '/health'
+    | '/hr'
+    | '/inventory'
+    | '/marketplace'
+    | '/milk'
+    | '/orders'
+    | '/pedigree'
+    | '/reports'
+    | '/storefront'
+    | '/weaning'
     | '/auth/forgot'
     | '/invite/$token'
   id:
@@ -125,7 +324,25 @@ export interface FileRouteTypes {
     | '/onboarding'
     | '/reset-password'
     | '/verify-email'
+    | '/_authenticated/analytics'
+    | '/_authenticated/animals'
+    | '/_authenticated/assets'
+    | '/_authenticated/breeding'
+    | '/_authenticated/customers'
     | '/_authenticated/dashboard'
+    | '/_authenticated/enterprise'
+    | '/_authenticated/finance'
+    | '/_authenticated/growth'
+    | '/_authenticated/health'
+    | '/_authenticated/hr'
+    | '/_authenticated/inventory'
+    | '/_authenticated/marketplace'
+    | '/_authenticated/milk'
+    | '/_authenticated/orders'
+    | '/_authenticated/pedigree'
+    | '/_authenticated/reports'
+    | '/_authenticated/storefront'
+    | '/_authenticated/weaning'
     | '/auth/forgot'
     | '/invite/$token'
   fileRoutesById: FileRoutesById
@@ -198,6 +415,97 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthForgotRouteImport
       parentRoute: typeof AuthRoute
     }
+    '/_authenticated/weaning': {
+      id: '/_authenticated/weaning'
+      path: '/weaning'
+      fullPath: '/weaning'
+      preLoaderRoute: typeof AuthenticatedWeaningRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/storefront': {
+      id: '/_authenticated/storefront'
+      path: '/storefront'
+      fullPath: '/storefront'
+      preLoaderRoute: typeof AuthenticatedStorefrontRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/reports': {
+      id: '/_authenticated/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof AuthenticatedReportsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/pedigree': {
+      id: '/_authenticated/pedigree'
+      path: '/pedigree'
+      fullPath: '/pedigree'
+      preLoaderRoute: typeof AuthenticatedPedigreeRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/orders': {
+      id: '/_authenticated/orders'
+      path: '/orders'
+      fullPath: '/orders'
+      preLoaderRoute: typeof AuthenticatedOrdersRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/milk': {
+      id: '/_authenticated/milk'
+      path: '/milk'
+      fullPath: '/milk'
+      preLoaderRoute: typeof AuthenticatedMilkRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/marketplace': {
+      id: '/_authenticated/marketplace'
+      path: '/marketplace'
+      fullPath: '/marketplace'
+      preLoaderRoute: typeof AuthenticatedMarketplaceRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/inventory': {
+      id: '/_authenticated/inventory'
+      path: '/inventory'
+      fullPath: '/inventory'
+      preLoaderRoute: typeof AuthenticatedInventoryRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/hr': {
+      id: '/_authenticated/hr'
+      path: '/hr'
+      fullPath: '/hr'
+      preLoaderRoute: typeof AuthenticatedHrRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/health': {
+      id: '/_authenticated/health'
+      path: '/health'
+      fullPath: '/health'
+      preLoaderRoute: typeof AuthenticatedHealthRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/growth': {
+      id: '/_authenticated/growth'
+      path: '/growth'
+      fullPath: '/growth'
+      preLoaderRoute: typeof AuthenticatedGrowthRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/finance': {
+      id: '/_authenticated/finance'
+      path: '/finance'
+      fullPath: '/finance'
+      preLoaderRoute: typeof AuthenticatedFinanceRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/enterprise': {
+      id: '/_authenticated/enterprise'
+      path: '/enterprise'
+      fullPath: '/enterprise'
+      preLoaderRoute: typeof AuthenticatedEnterpriseRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/dashboard': {
       id: '/_authenticated/dashboard'
       path: '/dashboard'
@@ -205,15 +513,86 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/customers': {
+      id: '/_authenticated/customers'
+      path: '/customers'
+      fullPath: '/customers'
+      preLoaderRoute: typeof AuthenticatedCustomersRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/breeding': {
+      id: '/_authenticated/breeding'
+      path: '/breeding'
+      fullPath: '/breeding'
+      preLoaderRoute: typeof AuthenticatedBreedingRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/assets': {
+      id: '/_authenticated/assets'
+      path: '/assets'
+      fullPath: '/assets'
+      preLoaderRoute: typeof AuthenticatedAssetsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/animals': {
+      id: '/_authenticated/animals'
+      path: '/animals'
+      fullPath: '/animals'
+      preLoaderRoute: typeof AuthenticatedAnimalsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/analytics': {
+      id: '/_authenticated/analytics'
+      path: '/analytics'
+      fullPath: '/analytics'
+      preLoaderRoute: typeof AuthenticatedAnalyticsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAnalyticsRoute: typeof AuthenticatedAnalyticsRoute
+  AuthenticatedAnimalsRoute: typeof AuthenticatedAnimalsRoute
+  AuthenticatedAssetsRoute: typeof AuthenticatedAssetsRoute
+  AuthenticatedBreedingRoute: typeof AuthenticatedBreedingRoute
+  AuthenticatedCustomersRoute: typeof AuthenticatedCustomersRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedEnterpriseRoute: typeof AuthenticatedEnterpriseRoute
+  AuthenticatedFinanceRoute: typeof AuthenticatedFinanceRoute
+  AuthenticatedGrowthRoute: typeof AuthenticatedGrowthRoute
+  AuthenticatedHealthRoute: typeof AuthenticatedHealthRoute
+  AuthenticatedHrRoute: typeof AuthenticatedHrRoute
+  AuthenticatedInventoryRoute: typeof AuthenticatedInventoryRoute
+  AuthenticatedMarketplaceRoute: typeof AuthenticatedMarketplaceRoute
+  AuthenticatedMilkRoute: typeof AuthenticatedMilkRoute
+  AuthenticatedOrdersRoute: typeof AuthenticatedOrdersRoute
+  AuthenticatedPedigreeRoute: typeof AuthenticatedPedigreeRoute
+  AuthenticatedReportsRoute: typeof AuthenticatedReportsRoute
+  AuthenticatedStorefrontRoute: typeof AuthenticatedStorefrontRoute
+  AuthenticatedWeaningRoute: typeof AuthenticatedWeaningRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAnalyticsRoute: AuthenticatedAnalyticsRoute,
+  AuthenticatedAnimalsRoute: AuthenticatedAnimalsRoute,
+  AuthenticatedAssetsRoute: AuthenticatedAssetsRoute,
+  AuthenticatedBreedingRoute: AuthenticatedBreedingRoute,
+  AuthenticatedCustomersRoute: AuthenticatedCustomersRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedEnterpriseRoute: AuthenticatedEnterpriseRoute,
+  AuthenticatedFinanceRoute: AuthenticatedFinanceRoute,
+  AuthenticatedGrowthRoute: AuthenticatedGrowthRoute,
+  AuthenticatedHealthRoute: AuthenticatedHealthRoute,
+  AuthenticatedHrRoute: AuthenticatedHrRoute,
+  AuthenticatedInventoryRoute: AuthenticatedInventoryRoute,
+  AuthenticatedMarketplaceRoute: AuthenticatedMarketplaceRoute,
+  AuthenticatedMilkRoute: AuthenticatedMilkRoute,
+  AuthenticatedOrdersRoute: AuthenticatedOrdersRoute,
+  AuthenticatedPedigreeRoute: AuthenticatedPedigreeRoute,
+  AuthenticatedReportsRoute: AuthenticatedReportsRoute,
+  AuthenticatedStorefrontRoute: AuthenticatedStorefrontRoute,
+  AuthenticatedWeaningRoute: AuthenticatedWeaningRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
