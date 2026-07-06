@@ -347,6 +347,7 @@ export type Database = {
           name: string
           owner_id: string
           slug: string | null
+          status: string
           timezone: string
           updated_at: string
         }
@@ -362,6 +363,7 @@ export type Database = {
           name: string
           owner_id: string
           slug?: string | null
+          status?: string
           timezone?: string
           updated_at?: string
         }
@@ -377,6 +379,7 @@ export type Database = {
           name?: string
           owner_id?: string
           slug?: string | null
+          status?: string
           timezone?: string
           updated_at?: string
         }
