@@ -1,18 +1,11 @@
 import type { ReactNode } from "react";
 import { AppShell } from "./app-shell";
 import { useFarm } from "@/lib/farm-context";
-import { useNavigate } from "@tanstack/react-router";
-import { useEffect } from "react";
 
 export function ModuleShell({
   title, description, children, actions,
 }: { title: string; description?: string; children: ReactNode; actions?: ReactNode }) {
-  const { farms, loading } = useFarm();
-  const nav = useNavigate();
-
-  useEffect(() => {
-    if (!loading && farms.length === 0) nav({ to: "/onboarding" });
-  }, [farms, loading, nav]);
+  const { loading } = useFarm();
 
   if (loading) return <AppShell><div className="text-muted-foreground">Loading…</div></AppShell>;
 
